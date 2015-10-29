@@ -31,13 +31,13 @@
   $connection = mysqli_connect($host, $user, $pass, $db, $port) or die(mysql_error());
   
   // And now perform simple query – make sure it's working
-  $query = "INSERT INTO book (title) VALUES ('" . htmlspecialchars($_POST['title']) . "');";
+  $query = "INSERT INTO patron (firstname,lastname) VALUES ('" . htmlspecialchars($_POST['first']) . "', '" . htmlspecialchars($_POST['last']) . "');";
   
   // Check to see if query succeeded
   if (mysqli_query($connection, $query)) {
-      echo "<p>Success! The book " . htmlspecialchars($_POST['title']) . "was added to the database.</p>";
+      echo "<p>Success! The patron " . htmlspecialchars($_POST['first']) . " " . htmlspecialchars($_POST['last']) . " was added to the database.</p>";
   } else {
-      echo "<p>Uh oh! The book " . htmlspecialchars($_POST['title']) . " could not be added to the database.</p>";
+      echo "<p>Uh oh! The patron " . htmlspecialchars($_POST['first']) . " " . htmlspecialchars($_POST['last']) . " was not added to the database.</p>";
   }
   
   ?>
